@@ -12,7 +12,7 @@ temp_data = {"temperature": 0, "timestamp": ""}
 hum_data = {"humidity": 0, "timestamp": ""}
 
 client = mqtt.Client()
-client.connect("192.168.4.1", 1883, 60) #IP address of Home001
+client.connect("XXX.XXX.X.X", 1883, 60) #IP address of Home001
 
 client.loop_start()
 
