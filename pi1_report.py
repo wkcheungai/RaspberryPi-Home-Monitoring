@@ -8,8 +8,8 @@ import datetime
 import pytz
 from pytz import timezone
 
-temp_data = {"temperature": 0, "timestamp": ""}
-hum_data = {"humidity": 0, "timestamp": ""}
+temp_data = {"temperature": "", "timestamp": ""}
+hum_data = {"humidity": "", "timestamp": ""}
 
 client = mqtt.Client()
 client.connect("XXX.XXX.X.X", 1883, 60) #IP address of Home001
@@ -26,9 +26,9 @@ try:
 		
 		timestamp_data = datetime.datetime.now(pytz.utc).astimezone(timezone('Asia/Hong_Kong')).strftime("%Y-%m-%d %H:%M:%S")
 		
-        temp_data["temperature"] = temperature
+        temp_data["temperature"] = str(temperature)
         temp_data["timestamp"] = timestamp_data
-        hum_data["humidity"] = humidity
+        hum_data["humidity"] = str(humidity)
         hum_data["timestamp"] = timestamp_data
 
         client.publish('home001/pi01/temperature', json.dumps(temp_data))
