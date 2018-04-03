@@ -9,7 +9,7 @@ def on_message(client, userdata, msg):
         client.publish("home001/status", "On/Off");
         
 client = mqtt.Client();
-client.connect("192.168.4.1", 1883, 60)
+client.connect("XXX.XXX.XXX.XXX", 1883, 60)
 
 client.subscribe("home001/action")
 
